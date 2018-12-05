@@ -1,13 +1,12 @@
-set default_user "paulirish"
-set default_machine "paulirish-macbookair2"
-
+set default_user "nader"
+set default_machine "wonderland"
 
 source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/chpwd.fish
 source ~/.config/fish/functions.fish
-source ~/.config/fish/chromium.fish
-source ~/.config/fish/conf.d/scmpuff.fish
+source ~/.config/fish/prompt.fish
+source ~/.config/fish/functions/z.fish
 
 # for things not checked into git..
 if test -e "$HOME/.extra.fish";
@@ -30,8 +29,7 @@ function make_completion --argument-names alias command
     " | .
     complete -c $alias -a "(__alias_completion_$alias)"
 end
-
-make_completion g 'git'
+# make_completion g 'git'
 
 
 # Readline colors
@@ -58,24 +56,24 @@ set -g fish_color_valid_path --underline
 set -g fish_color_dimmed 555
 set -g fish_color_separator 999
 
-# Git prompt status
-set -g __fish_git_prompt_showdirtystate 'yes'
-set -g __fish_git_prompt_showupstream auto
-set -g pure_git_untracked_dirty false
-
-# Status Chars
-#set __fish_git_prompt_char_dirtystate '*'
-set __fish_git_prompt_char_upstream_equal ''
-set __fish_git_prompt_char_upstream_ahead '↑'
-set __fish_git_prompt_char_upstream_behind '↓'
-set __fish_git_prompt_color_branch yellow
-set __fish_git_prompt_color_dirtystate 'red'
-
-set __fish_git_prompt_color_upstream_ahead ffb90f
-set __fish_git_prompt_color_upstream_behind blue
-
-# Local prompt customization
-set -e fish_greeting
+## Git prompt status
+#set -g __fish_git_prompt_showdirtystate 'yes'
+#set -g __fish_git_prompt_showupstream auto
+#set -g pure_git_untracked_dirty false
+#
+## Status Chars
+##set __fish_git_prompt_char_dirtystate '*'
+#set __fish_git_prompt_char_upstream_equal ''
+#set __fish_git_prompt_char_upstream_ahead '↑'
+#set __fish_git_prompt_char_upstream_behind '↓'
+#set __fish_git_prompt_color_branch yellow
+#set __fish_git_prompt_color_dirtystate 'red'
+#
+#set __fish_git_prompt_color_upstream_ahead ffb90f
+#set __fish_git_prompt_color_upstream_behind blue
+#
+## Local prompt customization
+#set -e fish_greeting
 
 
 set -g fish_pager_color_completion normal
@@ -95,11 +93,5 @@ set -gx LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
 
 # this currently messes with newlines in my prompt. lets debug it later.
-# test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /Users/paulirish/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]; and . /Users/paulirish/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
-
+# test -e {$HOME}/.iterm2_shell_integration.fish ; and source #{$HOME}/.iterm2_shell_integration.fish
 # rvm default
-
